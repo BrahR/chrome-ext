@@ -3,9 +3,19 @@
   "name": "idk not rn",
   "description": "Lated",
   "version": "1.0.0",
+  "host_permissions": ["https://*/*", "http://*/*"],
   "action": {
     "default_popup": "popup.html",
     "default_title": "Open to see all the executed the audio files"
   },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*", "http://*/*"],
+      "js": ["contentScripts.js"]
+    }
+  ],
   "permissions": ["tabs", "scripting"]
 }
